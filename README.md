@@ -32,6 +32,23 @@ in both webhook and polling modes.
 - Stats counters start from the day this version is deployed; the chart fills
   in over its first 14 days.
 
+## Landing page
+
+The public marketing page lives in [`web/site`](./web/site): one static
+`index.html`, with no build step and no dependencies. It is separate from the
+dashboard: it links to the bot and to the dashboard rather than talking to the
+API, so it can be hosted anywhere static.
+
+Deploy it to Cloudflare Workers (assets-only worker, config in
+[`wrangler.toml`](./wrangler.toml)):
+
+```
+npx wrangler deploy
+```
+
+Point the resulting worker at whatever hostname you want; the dashboard keeps
+running on Deno, unchanged.
+
 ## Local Hosting
 
 [![DigitalOcean Referral Badge](https://web-platforms.sfo2.digitaloceanspaces.com/WWW/Badge%203.svg)](https://www.digitalocean.com/?refcode=7b7d6a915392&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge)

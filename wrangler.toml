@@ -1,0 +1,10 @@
+# Static landing page (web/site) on Cloudflare Workers.
+# Assets-only worker: no `main`, no build step, no runtime code.
+#   npx wrangler deploy
+# The bot and its dashboard stay on Deno. This only serves the marketing page.
+
+name = "channelactions-site"
+compatibility_date = "2025-09-01"
+
+[assets]
+directory = "./web/site"
